@@ -16,7 +16,7 @@ dx = 1; //take turns
 dy = 2*Math.round(Math.random())-1;
 windx = 850;
 windy = 450;
-ballSpd = 1.5;
+ballSpd = 3; //1.5
 ballR = 10;
 ballVec = goodVec(dx,dy); //regular math vector in xy-plane
 ballPos = [windx/2,windy/2];
@@ -157,7 +157,7 @@ function update(okToMove){
     ballVec[1] = -ballVec[1];
   } else {
     if ((LeftSideDetect(posL) || RightSideDetect(posR)) && !OutOfRange()){ // && !OutOfRange()
-	    ballSpeed ++;
+	    //ballSpeed ++;
       ballVec[0] = -ballVec[0];
 			while ( LeftSideDetect(posL) || RightSideDetect(posR) ){
 				ballPos[0] += ballVec[0];
