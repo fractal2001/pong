@@ -158,6 +158,8 @@ function update(okToMove){
   } else {
     if ((LeftSideDetect(posL) || RightSideDetect(posR)) && !OutOfRange()){ // && !OutOfRange()
       ballVec[0] = -ballVec[0];
+	    ballVec[0]*= ballSpeed;
+	    ballVec[1]*=ballSpeed;
 			while ( LeftSideDetect(posL) || RightSideDetect(posR) ){
 				ballPos[0] += ballVec[0];
 	      ballPos[1] += ballVec[1];
