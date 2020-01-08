@@ -22,6 +22,7 @@ ballVec = goodVec(dx,dy); //regular math vector in xy-plane
 ballPos = [windx/2,windy/2];
 scoreL = 0;
 scoreR = 0;
+inc = 1.05;
 paddleHeight = windy/5;
 paddleWidth = paddleHeight/4;
 paddleSpeed = 0.9;
@@ -66,6 +67,7 @@ function goodVec(dx,dy){
 }
 
 function reset(){
+  paddleSpeed = 0.9;
   posL = [cushion,windy/2-paddleHeight/2];
   posR = [windx-paddleWidth-cushion,windy/2-paddleHeight/2];
   dx *= -1; //take turns
@@ -159,12 +161,15 @@ function update(okToMove){
     if ((LeftSideDetect(posL) || RightSideDetect(posR)) && !OutOfRange()){ // && !OutOfRange()
 	    //ballSpeed ++;
       ballVec[0] = -ballVec[0];
+	    ballVec[0] *= inc;
+	    ballVec[1] *= inc;
+	    paddleSpeed *= inc;
 			while ( LeftSideDetect(posL) || RightSideDetect(posR) ){
 				ballPos[0] += ballVec[0];
 	      ballPos[1] += ballVec[1];
 	      drawState();
-	      ballSpeed+= 0.1;
-	      paddleSpeed+=0.09;
+	      //ballSpeed+= 0.1;
+	      //paddleSpeed+=0.09;
 			}
     } else {
       ballPos[0] += ballVec[0];
